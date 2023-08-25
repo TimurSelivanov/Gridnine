@@ -1,9 +1,12 @@
 package com.gridnine.testing;
 
-public class Main
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Flight> flights = FlightBuilder.createFlights();
+
+        System.out.println(flights);
     }
 }

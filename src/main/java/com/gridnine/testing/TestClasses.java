@@ -62,8 +62,9 @@ class Flight {
 
     @Override
     public String toString() {
-        return segments.stream().map(Object::toString)
-                .collect(Collectors.joining(" "));
+        return "Flight " + this.hashCode() +
+                " segments= " + segments +
+                "\n";
     }
 }
 
