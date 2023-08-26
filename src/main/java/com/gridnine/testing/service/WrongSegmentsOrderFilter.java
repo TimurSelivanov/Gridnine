@@ -10,10 +10,9 @@ public class WrongSegmentsOrderFilter implements Filter {
 
     @Override
     public List<Flight> apply(List<Flight> flightsList) {
-//        return flightsList.stream()
-//                .flatMap(list -> list.getSegments().stream())
-//                .filter(segment -> segment.getDepartureDate().isAfter(segment.getArrivalDate()))
-//                .collect(Collectors.toList());
-        return null;
+        return flightsList.stream()
+                .filter(flight -> flight.getSegments().stream()
+                        .allMatch(segment -> segment.getArrivalDate().isBefore(segment.getDepartureDate())))
+                .collect(Collectors.toList());
     }
 }
