@@ -6,5 +6,5 @@ import com.gridnine.testing.model.Segment;
 import java.util.List;
 
 public interface Filter {
-    public List<Segment> apply(List<Flight> flightsList);
+    public List<Flight> apply(List<Flight> flightsList);
 }
