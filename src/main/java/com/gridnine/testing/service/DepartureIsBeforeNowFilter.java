@@ -12,10 +12,9 @@ public class DepartureIsBeforeNowFilter implements Filter {
     @Override
     public List<Flight> apply(List<Flight> flightsList) {
         LocalDateTime now = LocalDateTime.now();
-//        return flightsList.stream()
-//                .flatMap(list -> list.getSegments().stream())
-//                .filter(segment -> segment.getDepartureDate().isBefore(now))
-//                .collect(Collectors.toList());
-        return null;
+        return flightsList.stream()
+                .filter(flight -> flight.getSegments().stream()
+                        .allMatch(segment -> segment.getDepartureDate().isBefore(now)))
+                .collect(Collectors.toList());
     }
 }
