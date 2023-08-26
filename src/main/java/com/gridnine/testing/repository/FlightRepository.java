@@ -7,7 +7,13 @@ import java.util.List;
 
 public class FlightRepository {
 
+    List<Flight> flightList;
+
+    public FlightRepository(List<Flight> flightList) {
+        this.flightList = flightList;
+    }
+
     public List<Flight> getAllFlights() {
-        return FlightBuilder.createFlights();
+        return flightList;
     }
 }

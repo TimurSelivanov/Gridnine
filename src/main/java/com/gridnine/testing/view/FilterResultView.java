@@ -4,7 +4,7 @@ import com.gridnine.testing.model.Flight;
 
 import java.util.List;
 
-public class FilterResult {
+public class FilterResultView {
     public void printFilterResult(List<Flight> flights) {
         System.out.println(flights);
     }
