@@ -2,6 +2,7 @@ package com.gridnine.testing;
 
 import com.gridnine.testing.controller.FilterController;
 import com.gridnine.testing.model.Flight;
+import com.gridnine.testing.repository.FlightRepository;
 import com.gridnine.testing.service.DepartureIsBeforeNowFilter;
 import com.gridnine.testing.service.Filter;
 import com.gridnine.testing.service.LayoverTimeFilter;
@@ -12,9 +13,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ApplicationContext {
-    private List<Flight> flightList = FlightBuilder.createFlights();
     private Filter filter;
-    private FilterController filterController = new FilterController();
+    private final FilterController filterController = new FilterController();
+    private final FlightRepository flightRepository = new FlightRepository();
     Scanner scanner = new Scanner(System.in);
 
     public void run() {
@@ -28,7 +29,7 @@ public class ApplicationContext {
                 int userChoice = scanner.nextInt();
 
                 filter = filterController.getFilterStrategy(userChoice);
-                System.out.println(filter.apply(flightList));
+                System.out.println(filter.apply(flightRepository.getAllFlights()));
             } else {
                 System.out.println("Введите номер запроса.");
                 scanner.next();
