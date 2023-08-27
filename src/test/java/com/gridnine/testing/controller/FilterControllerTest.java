@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FilterControllerTest {
-
-    FilterController filterController;
+    private FilterController filterController;
     @BeforeEach
     void setUp() {
         filterController = new FilterController();

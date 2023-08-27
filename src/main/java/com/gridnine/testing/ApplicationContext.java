@@ -1,22 +1,16 @@
 package com.gridnine.testing;
 
 import com.gridnine.testing.controller.FilterController;
-import com.gridnine.testing.model.Flight;
 import com.gridnine.testing.repository.FlightRepository;
-import com.gridnine.testing.service.DepartureIsBeforeNowFilter;
 import com.gridnine.testing.service.Filter;
-import com.gridnine.testing.service.LayoverTimeFilter;
-import com.gridnine.testing.service.WrongSegmentsOrderFilter;
-import com.gridnine.testing.util.FlightBuilder;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class ApplicationContext {
     private Filter filter;
     private final FilterController filterController = new FilterController();
     private final FlightRepository flightRepository = new FlightRepository();
-    Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public void run() {
         System.out.println("Выберите правило фильтрации:");

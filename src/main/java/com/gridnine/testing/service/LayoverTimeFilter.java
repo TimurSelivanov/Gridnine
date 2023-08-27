@@ -9,12 +9,12 @@ import java.util.stream.Collectors;
 
 public class LayoverTimeFilter implements Filter {
 
-    private final static long LAYOVER_TIME_LIMIT = 2; //TODO: move variable to a util or validation class
+    private final static long LAYOVER_TIME_LIMIT = 2;
 
     @Override
     public List<Flight> apply(List<Flight> flightsList) {
         return flightsList.stream()
-                .filter(flight -> isLayoverTimeMoreThanLimit(flight))
+                .filter(LayoverTimeFilter::isLayoverTimeMoreThanLimit)
                 .collect(Collectors.toList());
     }
 

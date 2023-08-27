@@ -6,7 +6,7 @@ import com.gridnine.testing.util.FlightBuilder;
 import java.util.List;
 
 public class FlightRepository {
-    private List<Flight> flightList;
+    private final List<Flight> flightList;
 
     public FlightRepository() {
         this.flightList = FlightBuilder.createFlights();
