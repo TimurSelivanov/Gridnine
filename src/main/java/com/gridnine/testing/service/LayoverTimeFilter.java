@@ -21,7 +21,7 @@ public class LayoverTimeFilter implements Filter {
     private static boolean isLayoverTimeMoreThanLimit(Flight flight) {
         long calculatedLayoverTime = 0;
         List<Segment> segments = flight.getSegments();
-        for(int i = 1; i < segments.size(); i++)
+        for (int i = 1; i < segments.size(); i++)
             calculatedLayoverTime += Duration.between(segments.get(i - 1).getArrivalDate(), segments.get(i).getDepartureDate())
                     .toHours();
         return calculatedLayoverTime > LAYOVER_TIME_LIMIT;

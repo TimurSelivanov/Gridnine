@@ -7,32 +7,31 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-class DepartureIsBeforeNowFilterTest {
-    private DepartureIsBeforeNowFilter departureIsBeforeNowFilter;
+class WrongSegmentsOrderFilterTest {
+    private WrongSegmentsOrderFilter wrongSegmentsOrderFilter;
     private List<Flight> testFlightList;
     @BeforeEach
     void setUp() {
-        departureIsBeforeNowFilter = new DepartureIsBeforeNowFilter();
+        wrongSegmentsOrderFilter = new WrongSegmentsOrderFilter();
         testFlightList = FlightBuilder.createFlights();
     }
 
     @AfterEach
     void tearDown() {
-        departureIsBeforeNowFilter = null;
+        wrongSegmentsOrderFilter = null;
         testFlightList = null;
     }
 
     @Test
     void getsTheListWithSizeEqualsToOne() {
-        Assertions.assertEquals(1, departureIsBeforeNowFilter.apply(testFlightList).size());
+        Assertions.assertEquals(1, wrongSegmentsOrderFilter.apply(testFlightList).size());
     }
 
     @Test
-    void getsFlightWhereDepartureIsBeforeNow() {
-        Assertions.assertTrue(departureIsBeforeNowFilter.apply(testFlightList).get(0).getSegments()
-                .get(0).getDepartureDate().isBefore(LocalDateTime.now()));
+    void getsFlightWithWrongSegmentsOrder() {
+        Assertions.assertTrue(wrongSegmentsOrderFilter.apply(testFlightList).get(0).getSegments().get(0).getDepartureDate()
+                .isAfter(wrongSegmentsOrderFilter.apply(testFlightList).get(0).getSegments().get(0).getArrivalDate()));
     }
 }
