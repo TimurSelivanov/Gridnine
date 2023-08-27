@@ -9,7 +9,7 @@ The module processes the following  test filtering rules:
 
 Test data set generates in util class, so it is no need to install anything else.
 
-In case you want to try this bot you will need following software:
+In case you want to try this code you will need following software:
 > JRE
 
 > IDE (IntelliJ IDEA, Eclipse or equivalent)
