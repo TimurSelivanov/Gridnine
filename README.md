@@ -23,5 +23,7 @@ Open project with your IDE, run main() method and enjoy. )
 
 If you have any comments and suggestions for improving this code, and if you'd like to share your ideas, please feel free to reach out to me on LinkedIn.
 
+Full instructions are in test_instructions.txt file.
+
 ## Technology stack
 Java, Stream API, DateTime API, JUnit
