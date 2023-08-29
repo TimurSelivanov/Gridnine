@@ -7,19 +7,24 @@ import java.util.stream.Collectors;
  * Bean that represents a flight.
  */
 public class Flight {
+    private final int id;
     private final List<Segment> segments;
 
-    public Flight(final List<Segment> segs) {
+    public Flight(int id, final List<Segment> segs) {
+        this.id = id;
         segments = segs;
     }
 
+    public int getId() {
+        return id;
+    }
     public List<Segment> getSegments() {
         return segments;
     }
 
     @Override
     public String toString() {
-        return segments.stream().map(Object::toString)
+        return "Flight # " + id + " " + segments.stream().map(Object::toString)
                 .collect(Collectors.joining(" "));
     }
 }
